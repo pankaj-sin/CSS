@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*this we use bcz our content block size get change but box size not 
+    get change */
+}
+
+#wrapper{
+    height: 100vh;
+overflow-x: hidden;
+ overflow-y: auto; /* due to this line we can scroll in y direction */
+}
+
+.container{
+     height: 100%; /*here we set height 100% means its height equal to its parents height */
+     max-width: 1200px; /* we use  max-width and insert conte nt in it it extend up to 1200 px after this it get overflow 
+     instead of this we also use width only too */
+    margin:0 auto; /*we use margin :o auto to  to equalize left and right margin its actuallu palce the content in center */
+    padding: 20px; /*the space between border and content*/
+}
+
+.container h1{ /*This mean heading inside container */
+    margin: 20px 100px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+ 
+    display: flex; /*flex default behaviour is horizontal */
+    flex-wrap: wrap;/*if we not wrap it Due to use of  flex-wrap all elements
+    arrange them self top to bottom  .Space between maintane space between the contents*/
+     justify-content: space-between;/* we created its flex for space distribution */
+}  
+
+ .card{      /* its take by-default height of flexbox */
+     width: 32%; /*Its mean in a row there will be 3 elements */
+    position: relative; /*  Nearest ancestor should be relative if we want to position some child absolute */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img{
+     height: 100%; /*Due to this it inherits hight as card height; */
+    width: 100%; /* This means the width of element equal to parent width: ; */
+    filter: grayscale(100%); /*Due to this my all picture converted in black and white */
+    box-shadow: 0 0 20px #333;
+    object-fit: cover  ;
+}
+
+.card:hover{
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 10px #333);
+    transition: 0.5s;
+    }
+
+    .card:hover img{
+        filter: grayscale(0%);
+    }
+
+     .card figcaption{ /*here figcaption parent is card  */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 25px;
+         width: 100%; /* This mean its take 100% the width of card bcz its parent is card */
+        height: 20%;  /* This mean its take 100% the hight of card bcz its parent is card */
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+        opacity: 0; /* this mean text is not visible */
+        border-radius: 0 0 10px;
+        background: linear-gradient(0deg, rgba(0, 0 ,0, 0.5) 0% , rgba(255 255 255));
+        transition: 0.3s;
+    }
+    .card:hover figcaption {
+        opacity: 1;
+        transform: scale(1.03);
+    }
